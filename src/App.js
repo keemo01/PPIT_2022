@@ -7,15 +7,15 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+         Testing to see all wroks fine!, Link below shows BTC Chart
         </p>
         <a
-          className="App-link"
-          href="https://reactjs.org"
+          className="btc-chart"
+          href="https://coinmarketcap.com/currencies/bitcoin/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          BTC Chart
         </a>
       </header>
     </div>
