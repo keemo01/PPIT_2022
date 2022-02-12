@@ -1,25 +1,53 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Routes, Switch } from "react-router-dom";
+import axios from 'axios';
+import { Currencies } from './Components/Currencies';
+import { Exchanges } from './Components/exchanges';
+import { Portfolio } from './Components/portfolio';
+import { Learn } from './Components/learn';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         Testing to see all wroks fine!, Link below shows BTC Chart
-        </p>
-        <a
-          className="btc-chart"
-          href="https://coinmarketcap.com/currencies/bitcoin/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          BTC Chart
-        </a>
-      </header>
-    </div>
-  );
-}
+//https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false
 
-export default App;
+
+function App() {  
+    const [listOfCoins, setListOfCoins] = useState()
+
+    useEffect(() => {
+      axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false")
+        .then((res) =>{
+          setListOfCoins(res.data.coins)
+        })
+    }, []);
+
+    return (
+      <Router>
+      <div className="App">
+        <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="/">Cryptonia</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="/crypto">Cryptocurrencies</Nav.Link>
+              <Nav.Link href="/exchanges">Exchanges</Nav.Link>
+              <Nav.Link href="/portfolio">Porfolio</Nav.Link>
+              <Nav.Link href="/learn">About Crypto</Nav.Link>
+            </Nav>
+        </Navbar>
+
+        <br/>
+
+        <Switch>
+          <Route path = '/crypto' component = {Currencies} />
+          <Route path = '/exchanges' component = {Exchanges} />
+          <Route path = '/portfolio' component = {Portfolio} />
+          <Route path = '/learn' component = {Learn} />
+  
+        </Switch>
+        </div>
+      </Router>
+
+      
+    );
+}export default App;
