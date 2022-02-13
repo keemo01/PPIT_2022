@@ -1,55 +1,51 @@
-.App {
-  height: auto;
-  width: 100vw;
-  font-family: Arial, Helvetica, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #1a1a1c;
+  color: #fff;
 }
 
-body {
-  padding: 0%;
-  margin: 0%;
-}
-
-.cryptoHeader {
-  width: 100%;
-  height: 100px;
-  background-color: rgb(255, 196, 0);
+.coin-app {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cryptoHeader input {
-  width: 50%;
-  height: 50px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(255, 255, 255);
-  font-size: 20px;
-  font-weight: bold;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  margin-top: 10px;
-}
-
-.cryptoDisplay {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  color: rgb(255, 255, 255);
 }
 
-.coin {
-  width: 400px;
-  height: 300px;
-  background-color: rgb(36, 36, 36);
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 10px;
-  margin: 20px;
+.coin-search {
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.coin-text {
+  margin-bottom: 32px;
   text-align: center;
 }
 
-.coin img {
-  height: 80px;
+.coin-input {
+  padding-left: 122px;
+  width: 300px;
+  height: 40px;
+  border-radius: 30px;
+  border: none;
+  background-image: linear-gradient(
+    -25deg,
+    #150a1a 6%,
+    #4f1299 68%,
+    #40248f 0%
+  );
+
+  color: #e2e2e2;
+}
+
+.coin-input::placeholder {
+  color: #fffdfd;
 }

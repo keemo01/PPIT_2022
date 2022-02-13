@@ -1,50 +1,70 @@
 import "../App.css";
-import { useEffect, useState } from "react";
-import Coin from "./Coin";
+import React, { useEffect, useState } from "react";
+import Coin from "./Coin.js";
 import Axios from "axios";
 
 function Currency() {
-    const [listOfCoins, setListOfCoins] = useState([]);
-    const [searchWord, setSearchWord] = useState("");
+    //state that represetns list of coins, has empty array
+    const [coins, setCoins] = useState([]);
+    //maps through data of input
+    const [search, setSearch] = useState('');
 
+    //hooks that run immediatly wehn page rerenders
     useEffect(() => {
-        Axios.get("https://api.coinstats.app/public/v1/coins?skip=0").then(
-            (response) => {
-                setListOfCoins(response.data.coins);
-            }
-        );
+        //axios is used to get http request // api shows coins and their data, you can change the number of coins that are shown on the page by achanging the "page=20" to how ever aamount you want shown
+        Axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=20&page=1&sparkline=false')
+        //promise that is used to hook up a handler that will be called when the promise is resolved
+            .then(res => {
+
+                setCoins(res.data);
+                console.log(res.data);
+            })
+            //lets you know if there are any errors
+            .catch(error =>
+                 console.log(error));
+     //dependancy array that stops it running constantly
     }, []);
 
-    const filteredCoins = listOfCoins.filter((coin) => {
-        return coin.name.toLowerCase().includes(searchWord.toLowerCase());
-    });
+    //handle change function 
+    const handleChange = e => {
+        setSearch(e.target.value);
+    };
+
+    //filter that loops through list and keeps only the elements that meet the condition e.g keeps elements that match the search word
+    const filteredCoins = coins.filter(coin =>
+        coin.name.toLowerCase().includes(search.toLowerCase())
+    );
 
     return (
-
-        <div className="App">
-            <div className="cryptoHeader">
-                <input
-                    type="text"
-                    placeholder="Search for Currencies."
-                    onChange={(event) => {
-                        setSearchWord(event.target.value);
-                    }}
-                />
+        <div className='coin-app'>
+            <div className='coin-search'>
+                <h3 className='coin-text'>Search For Coins</h3>
+                <form>
+                    <input
+                        className='coin-input'
+                        type='text'
+                        onChange={handleChange}
+                        placeholder='Search'
+                    />
+                </form>
             </div>
-            <div className="cryptoDisplay">
-                {filteredCoins.map((coin) => {
-                    return (
-                        <Coin
-                            name={coin.name}
-                            icon={coin.icon}
-                            price={coin.price}
-                            symbol={coin.symbol}
-                        />
-                    );
-                })}
-            </div>
+            {/* filters through coins */}
+            {filteredCoins.map(coin => {
+                return (
+                    //returns coin componenets
+                    <Coin
+                        key={coin.id}
+                        name={coin.name}
+                        price={coin.current_price}
+                        symbol={coin.symbol}
+                        marketcap={coin.total_volume}
+                        volume={coin.market_cap}
+                        image={coin.image}
+                        priceChange={coin.price_change_percentage_24h}
+                    />
+                );
+            })}
         </div>
     );
 }
-
 export default Currency;

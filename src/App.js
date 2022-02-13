@@ -1,62 +1,45 @@
-import './App.css';
 import React, { useState, useEffect, Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar } from 'react-bootstrap';
 import { Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Routes, Switch } from "react-router-dom";
-import Axios from 'axios';
 //import { Currencies } from './Components/Currencies';
 import { Exchanges } from './Components/exchanges';
 import { Portfolio } from './Components/portfolio';
 import { Learn } from './Components/learn';
-import Coin from './Components/Coin';
 import Currency from './Components/currency';
 
 
 //https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false
 //"https://api.coinstats.app/public/v1/coins?skip=0"
 
-function App() {
-  const [listOfCoins, setListOfCoins] = useState([]);
-  const [searchWord, setSearchWord] = useState("");
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div className="App">
 
-  useEffect(() => {
-    Axios.get("https://api.coinstats.app/public/v1/coins?skip=0").then(
-      (response) => {
-        setListOfCoins(response.data.coins);
-      }
+          <Navbar bg="grey" variant="dark">
+            <Navbar.Brand href="/">Cryptonia</Navbar.Brand>
+            <Nav className="mr-auto">
+              <Nav.Link href="/crypto">Cryptocurrencies</Nav.Link>
+              <Nav.Link href="/exchanges">Exchanges</Nav.Link>
+              <Nav.Link href="/portfolio">Porfolio</Nav.Link>
+              <Nav.Link href="/learn">About Crypto</Nav.Link>
+            </Nav>
+          </Navbar>
+
+          <br />
+
+          <Switch>
+            <Route path='/crypto' component={Currency} />
+            <Route path='/exchanges' component={Exchanges} />
+            <Route path='/portfolio' component={Portfolio} />
+            <Route path='/learn' component={Learn} />
+
+          </Switch>
+        </div>
+      </Router>
     );
-  }, []);
-
-  const filteredCoins = listOfCoins.filter((coin) => {
-    return coin.name.toLowerCase().includes(searchWord.toLowerCase());
-  });
-
-  return (
-    
-    <Router>
-      <div className="App">
-
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/">Cryptonia</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="/crypto">Cryptocurrencies</Nav.Link>
-            <Nav.Link href="/exchanges">Exchanges</Nav.Link>
-            <Nav.Link href="/portfolio">Porfolio</Nav.Link>
-            <Nav.Link href="/learn">About Crypto</Nav.Link>
-          </Nav>
-        </Navbar>
-
-        <br />
-
-        <Switch>
-          <Route path='/crypto' component={Currency} />
-          <Route path='/exchanges' component={Exchanges} />
-          <Route path='/portfolio' component={Portfolio} />
-          <Route path='/learn' component={Learn} />
-
-        </Switch>
-      </div>
-    </Router>
-  );
+  }
 } export default App;
