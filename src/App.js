@@ -20,7 +20,7 @@ class App extends Component {
         <div className="App">
 
           <Navbar bg="grey" variant="dark">
-            <Navbar.Brand href="/">Cryptonia</Navbar.Brand>
+            <Navbar.Brand href="/home">Cryptonia</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link href="/crypto">Cryptocurrencies</Nav.Link>
               <Nav.Link href="/exchanges">Exchanges</Nav.Link>
@@ -32,6 +32,7 @@ class App extends Component {
           <br />
 
           <Switch>
+            <Route path='/home' component={Currency/*page to be added.*/} />
             <Route path='/crypto' component={Currency} />
             <Route path='/exchanges' component={Exchanges} />
             <Route path='/portfolio' component={Portfolio} />
