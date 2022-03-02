@@ -8,7 +8,7 @@ import { Exchanges } from './Components/exchanges';
 import { Portfolio } from './Components/portfolio';
 import { Learn } from './Components/learn';
 import Currency from './Components/currency';
-
+import Login from './Components/login';
 
 //https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false
 //"https://api.coinstats.app/public/v1/coins?skip=0"
@@ -20,22 +20,25 @@ class App extends Component {
         <div className="App">
 
           <Navbar bg="grey" variant="dark">
-            <Navbar.Brand href="/">Cryptonia</Navbar.Brand>
+            <Navbar.Brand href="/home">Cryptonia</Navbar.Brand>
             <Nav className="mr-auto">
-              <Nav.Link href="/crypto">Cryptocurrencies</Nav.Link>
+              {/* <Nav.Link href="/crypto">Cryptocurrencies</Nav.Link> */}
               <Nav.Link href="/exchanges">Exchanges</Nav.Link>
               <Nav.Link href="/portfolio">Porfolio</Nav.Link>
               <Nav.Link href="/learn">About Crypto</Nav.Link>
+              <Nav.Link href="/login">Login and Register</Nav.Link>
             </Nav>
           </Navbar>
 
           <br />
 
           <Switch>
-            <Route path='/crypto' component={Currency} />
+          <Route path='/home' component={Currency} />
+            {/* <Route path='/crypto' component={Currency} /> */}
             <Route path='/exchanges' component={Exchanges} />
             <Route path='/portfolio' component={Portfolio} />
             <Route path='/learn' component={Learn} />
+            <Route path='/login' component={Login} />
 
           </Switch>
         </div>
