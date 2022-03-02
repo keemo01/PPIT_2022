@@ -33,8 +33,13 @@ class App extends Component {
           <br />
 
           <Switch>
+<<<<<<< HEAD
           <Route path='/home' component={Currency} />
             {/* <Route path='/crypto' component={Currency} /> */}
+=======
+            <Route path='/home' component={Currency/*page to be added.*/} />
+            <Route path='/crypto' component={Currency} />
+>>>>>>> 9cdb7e34e27d20e305ec6bebbe8a79f5f231d1a0
             <Route path='/exchanges' component={Exchanges} />
             <Route path='/portfolio' component={Portfolio} />
             <Route path='/learn' component={Learn} />
