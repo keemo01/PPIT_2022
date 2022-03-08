@@ -15,7 +15,7 @@ export class CryptoItem extends React.Component {
 
     }
 
-    //delete song method that logs to console
+    //delete crypto method that logs to console
     DeleteCrypto(e) {
         e.preventDefault();
         console.log("Delete: " + this.props.crypto._id);

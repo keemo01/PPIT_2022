@@ -10,7 +10,6 @@ import { Add } from './Components/add';
 import { View } from './Components/view';
 import { Update } from './Components/update';
 
-
 //https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false
 //"https://api.coinstats.app/public/v1/coins?skip=0"
 
@@ -37,9 +36,9 @@ class App extends Component {
           <Route path='/home' component={Currency}  exact/>
             <Route path='/exchanges' component={Exchanges} exact/>
             <Route path='/learn' component={Learn} exact/>
-            <Route path='/add' component={Add} />
+            <Route path='/add' component={Add} /> 
             <Route path='/view' component={View} />
-            <Route path='/update/:id' component={Update}></Route>
+            <Route path='/update/:id' component={Update} />
           </Switch>
         </div>
       </Router>
