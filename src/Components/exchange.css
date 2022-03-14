@@ -1,35 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.App{
+  text-align: center;
+}
 
-.exchange-container {
-    display: flex;
-    justify-content: center;
+table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  height: 200px;
+  border-collapse: collapse;
   }
   
-.exchange-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    height: 90px;
-    border-bottom: 2px solid #d7d7d7;
-    width: 900px;
+th {
+  text-align: center;
+  border-bottom: 1px solid white;
   }
-
-.exchange {
-    display: flex;
-    align-items: center;
-    padding-right: 24px;
   
-    min-width: 300px;
-  }
+td {
+text-align: center;
+}
 
-  .exchange h4 {
-    font-size: 16px;
-    width: 150px;
-  }
+tr{
+  border: solid;
+  border-width: 2px 0;
+}
 
-.exchange img{
-    height: 60px;
-    width: 60px;
-    margin-right: 10px;
+img{
+  width: 80px;
 }

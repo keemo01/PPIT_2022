@@ -78,7 +78,7 @@ export class Add extends React.Component {
             <div className="Content">
                 <form onSubmit={this.onSubmit}>
 
-                    <h2>Add You Purchases To your Portfolio Below:</h2>
+                    <h2>Add Your Purchases To your Portfolio Below:</h2>
                     <br></br>
 
                     <div className="form-group">
