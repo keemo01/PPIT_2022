@@ -1,4 +1,4 @@
-.App{
+.App {
   text-align: center;
 }
 
@@ -8,22 +8,22 @@ table {
   width: 800px;
   height: 200px;
   border-collapse: collapse;
-  }
-  
+}
+
 th {
   text-align: center;
   border-bottom: 1px solid white;
-  }
-  
-td {
-text-align: center;
 }
 
-tr{
+td {
+  text-align: center;
+}
+
+tr {
   border: solid;
   border-width: 2px 0;
 }
 
-img{
+img {
   width: 80px;
 }

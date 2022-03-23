@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: #1a1a1c;
   color: #fff;
 }
@@ -17,12 +17,11 @@
   color: rgb(255, 255, 255);
 }
 
-.blockquote{
+.blockquote {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
-
 }
 .coin-search {
   margin-bottom: 60px;
@@ -59,17 +58,12 @@
   height: 40px;
   border-radius: 30px;
   border: none;
-  background-image: linear-gradient(
-    -25deg,
-    #f1e3e3 0%,
-    #ffffff 0%,
-    #ffffff 0%
-  );
+  background-image: linear-gradient(-25deg, #f1e3e3 0%, #ffffff 0%, #ffffff 0%);
 
   color: #000000;
 }
 
-.Content{
+.Content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,7 +74,7 @@
   color: #fffbfb;
 }
 
-.portfolio-app{
+.portfolio-app {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
