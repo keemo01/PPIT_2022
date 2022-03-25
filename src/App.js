@@ -14,7 +14,7 @@ import Currency from "./Components/currency";
 import { Add } from "./Components/add";
 import { View } from "./Components/view";
 import { Update } from "./Components/update";
-import { Register } from "./Components/register";
+import { LogRegister } from "./Components/LogRegister";
 
 //https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false
 //"https://api.coinstats.app/public/v1/coins?skip=0"
@@ -31,13 +31,13 @@ class App extends Component {
               <Nav.Link href="/learn">About Crypto</Nav.Link>
               <Nav.Link href="/add">Add Crypto</Nav.Link>
               <Nav.Link href="/view">View portfolio</Nav.Link>
-              <Nav.Link href="/register">Register</Nav.Link>
+              <Nav.Link href="/logregister">Login/Register</Nav.Link>
             </Nav>
           </Navbar>
 
           <br />
 
-          <Switch>
+          <Route>
             <Route path="/" component={Currency} exact />
             <Route path="/home" component={Currency} exact />
             <Route path="/exchanges" component={Exchanges} exact />
@@ -45,8 +45,8 @@ class App extends Component {
             <Route path="/add" component={Add} />
             <Route path="/view" component={View} />
             <Route path="/update/:id" component={Update} />
-            <Route path="/register" component={Register} />
-          </Switch>
+            <Route path="/LogRegister" component={<LogRegister />} />
+          </Route>
         </div>
       </Router>
     );

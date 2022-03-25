@@ -48,26 +48,35 @@ export class Add extends React.Component {
 
     //onchange attributes fires the moment the value of the element is changed
     onSubmit(e) {
-        e.preventDefault();
-        alert("Song: " + this.state.Title + " " +
-            "Quantity: " + this.state.Quantity + " " +
-            "Poster: " + this.state.Poster);
+      e.preventDefault();
+      alert(
+        "Song: " +
+          this.state.Title +
+          " " +
+          "Quantity: " +
+          this.state.Quantity +
+          " " +
+          "Poster: " +
+          this.state.Poster
+      );
 
-        const newCrypto = {
-            title: this.state.Title,
-            quantity: this.state.Quantity,
-            poster: this.state.Poster
-        }
+      const newCrypto = {
+        title: this.state.Title,
+        quantity: this.state.Quantity,
+        poster: this.state.Poster,
+      };
 
-        axios.post('http://localhost:4000/api/crypto', newCrypto)
+      // Sending post request to the server
+      axios
+        .post("http://localhost:4000/api/crypto", newCrypto)
 
-            .then((res) => {
-                console.log(res);
-            })
+        .then((res) => {
+          console.log(res);
+        })
 
-            .catch((err) => {
-                console.log(err);
-            });
+        .catch((err) => {
+          console.log(err);
+        });
     }
 
     //turns website code into the interactive pages users see
