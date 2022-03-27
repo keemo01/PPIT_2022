@@ -1,3 +1,4 @@
+const { generateToken } = require('../Backend/genToken');
 const express = require("express");
 const app = express();
 const port = 4000;
@@ -5,6 +6,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
+
 
 app.use(cors());
 app.use(function (req, res, next) {

@@ -31,7 +31,7 @@ class App extends Component {
               <Nav.Link href="/learn">About Crypto</Nav.Link>
               <Nav.Link href="/add">Add Crypto</Nav.Link>
               <Nav.Link href="/view">View portfolio</Nav.Link>
-              <Nav.Link href="/logregister">Login/Register</Nav.Link>
+              <Nav.Link href="/LogRegister">Login/Register</Nav.Link>
             </Nav>
           </Navbar>
 
@@ -44,8 +44,8 @@ class App extends Component {
             <Route path="/learn" component={Learn} exact />
             <Route path="/add" component={Add} />
             <Route path="/view" component={View} />
-            <Route path="/update/:id" component={Update} />
-            <Route path="/LogRegister" component={<LogRegister />} />
+            {/* <Route path="/update" component={Update} /> */}
+            <Route path="/LogRegister" component={LogRegister} />
           </Route>
         </div>
       </Router>

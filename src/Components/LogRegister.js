@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
+import "../"
 
 export class LogRegister extends React.Component {
   constructor() {
@@ -49,9 +50,14 @@ export class LogRegister extends React.Component {
     axios
       .post("http://localhost:4000/login", user)
       .then((res) => {
-        console.log(res);
+        // If sucessful
+        if (res.data.token) {
+          localStorage.setItem("token", res.data.token);
+          console.log(localStorage.getItem("token"));
+        }
       })
       .catch((err) => {
+        // If there are errors
         console.log(err);
       });
   }
@@ -86,6 +92,7 @@ export class LogRegister extends React.Component {
       .post("http://localhost:4000/register", newUser)
       .then((res) => {
         console.log(res);
+        console.log("User successfully registered");
       })
       .catch((err) => {
         console.log(err);
@@ -148,6 +155,7 @@ export class LogRegister extends React.Component {
         <Row>
           <Col>
             <div>
+              <h2>Please Login Or Register</h2>
               {/* create login form */}
               <form onSubmit={this.handleLoginSubmit}>
                 <h3>Login</h3>
