@@ -1,4 +1,4 @@
-const { generateToken } = require('../Backend/genToken');
+//const { authToken } = require("../Backend/authToken");
 const express = require("express");
 const app = express();
 const port = 4000;
@@ -6,7 +6,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
-
+const authToken = require("./authToken");
 
 app.use(cors());
 app.use(function (req, res, next) {
@@ -44,6 +44,7 @@ var cryptoSchema = new Schema({
   title: String,
   quantity: String,
   poster: String,
+  email: String,
 });
 
 //generated schema
@@ -109,15 +110,17 @@ app.post("/api/crypto", (req, res) => {
   console.log(req.body.title);
   console.log(req.body.quantity);
   console.log(req.body.poster);
+  console.log(req.body.email);
 
   CryptoModel.create({
     title: req.body.title,
     quantity: req.body.quantity,
     poster: req.body.poster,
+    email: req.body.email,
   });
 
   //stop duplicaiton
-  res.send("Item Added");
+  res.send("Item Already Added");
 });
 
 // post request to register new user
@@ -155,7 +158,7 @@ app.post("/login", (req, res) => {
         // Generate token - send to the user
         res.json({
           firstName: loginRegSchema.firstName,
-          token: generateToken(loginRegSchema._id),
+          token: authToken(loginRegSchema.email),
         });
         console.log("Successfully LoggedIn");
       } else {

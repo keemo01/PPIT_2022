@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
-import "../"
+import "../";
 
 export class LogRegister extends React.Component {
   constructor() {
@@ -75,6 +75,7 @@ export class LogRegister extends React.Component {
         "\nPassword: " +
         this.state.password
     );
+
     // stops website from crashing after reloading
     event.preventDefault();
 

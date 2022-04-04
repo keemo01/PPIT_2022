@@ -11,11 +11,13 @@ export class Update extends React.Component {
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeQuantity = this.onChangeQuantity.bind(this);
     this.onChangePoster = this.onChangePoster.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
 
     // used by React to represent information about the components current situation
     this.state = {
       Title: "",
       Quantity: "",
+      Email: "",
       Poster: "",
     };
   }
@@ -64,6 +66,14 @@ export class Update extends React.Component {
   }
 
   //onchange attributes fires the moment the value of the element is changed
+  onChangeEmail(e) {
+    //setState updates value of state based on new user input()
+    this.setState({
+      Email: e.target.value,
+    });
+  }
+
+  //onchange attributes fires the moment the value of the element is changed
   onSubmit(e) {
     e.preventDefault();
     alert(
@@ -74,7 +84,10 @@ export class Update extends React.Component {
         this.state.Quantity +
         " " +
         "Poster: " +
-        this.state.Poster
+        this.state.Poster +
+        " " +
+        "Email: " +
+        this.state.Email
     );
 
     const newCrypto = {
@@ -82,6 +95,7 @@ export class Update extends React.Component {
       quantity: this.state.Quantity,
       poster: this.state.Poster,
       _id: this.state._id,
+      email: this.state.Email,
     };
 
     axios
@@ -147,6 +161,22 @@ export class Update extends React.Component {
                 value={this.state.Poster}
                 //onchange attributes fires the moment the value of the element is changed
                 onChange={this.onChangePoster}
+              />
+            </form>
+          </div>
+
+          <div className="form-group">
+            <label>
+              <b>Enter your Email: </b>
+            </label>
+            <form>
+              <input
+                type="text"
+                id="input"
+                className="form-input"
+                value={this.state.Email}
+                //onchange attributes fires the moment the value of the element is changed
+                onChange={this.onChangeEmail}
               />
             </form>
           </div>

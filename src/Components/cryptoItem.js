@@ -45,6 +45,7 @@ export class CryptoItem extends React.Component {
               <footer className="blockquote-footer">
                 <p>{this.props.crypto.title}</p>
                 <p>{this.props.crypto.quantity}</p>
+                <p>{this.props.crypto.email}</p>
               </footer>
             </blockquote>
           </Card.Body>

@@ -44,7 +44,7 @@ class App extends Component {
             <Route path="/learn" component={Learn} exact />
             <Route path="/add" component={Add} />
             <Route path="/view" component={View} />
-            {/* <Route path="/update" component={Update} /> */}
+            {<Route path="/update" component={Update} />}
             <Route path="/LogRegister" component={LogRegister} />
           </Route>
         </div>
